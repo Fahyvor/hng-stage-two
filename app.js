@@ -11,9 +11,11 @@ dotenv.config()
 
 app.use(bodyParser.json());
 
+const database_uri = process.env.MONGO_URI;
+
 async function connectDB() {
   try {
-  await mongoose.connect(process.env.MONGO_URI, {
+  await mongoose.connect(database_uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
